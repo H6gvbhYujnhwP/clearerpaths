@@ -260,19 +260,7 @@ export default function Contact() {
                 </div>
               </div>
 
-              {/* Calendly placeholder */}
-              <div className="bg-brand-green/5 border border-brand-green/20 rounded-2xl p-8 text-center">
-                <Clock className="w-8 h-8 text-brand-green mx-auto mb-3" />
-                <h3 className="text-lg font-bold text-brand-navy mb-2">Prefer to Book Directly?</h3>
-                <p className="text-gray-600 text-sm mb-4">
-                  Use our online booking system to choose a time that works for you.
-                </p>
-                <Button className="bg-brand-green hover:bg-brand-green-dark text-white font-semibold px-6">
-                  Book a Time Slot
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </Button>
-                <p className="text-gray-400 text-xs mt-3">Calendly integration coming soon</p>
-              </div>
+
             </motion.div>
           </div>
         </div>
