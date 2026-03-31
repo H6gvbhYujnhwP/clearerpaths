@@ -183,22 +183,22 @@ export default function Contact() {
               <div className="bg-brand-navy rounded-2xl p-8">
                 <h3 className="text-xl font-bold text-white mb-6">Contact Information</h3>
                 <div className="space-y-5">
-                  <a href="tel:01702540776" className="flex items-start gap-4 group">
+                  <a href="tel:02035183702" className="flex items-start gap-4 group">
                     <div className="w-10 h-10 bg-brand-green/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <Phone className="w-5 h-5 text-brand-green-light" />
                     </div>
                     <div>
                       <p className="text-gray-400 text-xs mb-0.5">Phone</p>
-                      <p className="text-white font-medium group-hover:text-brand-green-light transition-colors">01702 540776</p>
+                      <p className="text-white font-medium group-hover:text-brand-green-light transition-colors">02035183702</p>
                     </div>
                   </a>
-                  <a href="mailto:hello@clearerpaths.co.uk" className="flex items-start gap-4 group">
+                  <a href="mailto:john@clearerpaths.co.uk" className="flex items-start gap-4 group">
                     <div className="w-10 h-10 bg-brand-green/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <Mail className="w-5 h-5 text-brand-green-light" />
                     </div>
                     <div>
                       <p className="text-gray-400 text-xs mb-0.5">Email</p>
-                      <p className="text-white font-medium group-hover:text-brand-green-light transition-colors">hello@clearerpaths.co.uk</p>
+                      <p className="text-white font-medium group-hover:text-brand-green-light transition-colors">john@clearerpaths.co.uk</p>
                     </div>
                   </a>
                   <div className="flex items-start gap-4">

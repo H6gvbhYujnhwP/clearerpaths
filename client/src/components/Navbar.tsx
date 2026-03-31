@@ -73,9 +73,9 @@ export default function Navbar() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-3">
-            <a href="tel:01702540776" className="flex items-center gap-2 text-sm text-brand-navy font-medium hover:text-brand-green transition-colors">
+            <a href="tel:02035183702" className="flex items-center gap-2 text-sm text-brand-navy font-medium hover:text-brand-green transition-colors">
               <Phone className="w-4 h-4" />
-              01702 540776
+              02035183702
             </a>
             <Link href="/contact">
               <Button className="bg-brand-green hover:bg-brand-green-dark text-white font-semibold px-6 shadow-md hover:shadow-lg transition-all">
@@ -119,9 +119,9 @@ export default function Navbar() {
                 </Link>
               ))}
               <div className="pt-3 mt-2 border-t border-gray-100 flex flex-col gap-3">
-                <a href="tel:01702540776" className="flex items-center gap-2 px-4 text-brand-navy font-medium">
+                <a href="tel:02035183702" className="flex items-center gap-2 px-4 text-brand-navy font-medium">
                   <Phone className="w-4 h-4" />
-                  01702 540776
+                  02035183702
                 </a>
                 <Link href="/contact">
                   <Button className="w-full bg-brand-green hover:bg-brand-green-dark text-white font-semibold">
