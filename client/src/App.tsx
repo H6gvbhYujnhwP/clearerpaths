@@ -4,35 +4,52 @@ import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import Home from "./pages/Home";
+import Services from "./pages/Services";
+import HowItWorks from "./pages/HowItWorks";
+import About from "./pages/About";
+import CaseStudies from "./pages/CaseStudies";
+import Apps from "./pages/Apps";
+import Contact from "./pages/Contact";
+import { useEffect } from "react";
+import { useLocation } from "wouter";
 
+function ScrollToTop() {
+  const [location] = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [location]);
+  return null;
+}
 
 function Router() {
   return (
     <Switch>
-      <Route path={"/"} component={Home} />
-      <Route path={"/404"} component={NotFound} />
-      {/* Final fallback route */}
+      <Route path="/" component={Home} />
+      <Route path="/services" component={Services} />
+      <Route path="/how-it-works" component={HowItWorks} />
+      <Route path="/about" component={About} />
+      <Route path="/case-studies" component={CaseStudies} />
+      <Route path="/apps" component={Apps} />
+      <Route path="/contact" component={Contact} />
+      <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
   );
 }
 
-// NOTE: About Theme
-// - First choose a default theme according to your design style (dark or light bg), than change color palette in index.css
-//   to keep consistent foreground/background color across components
-// - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
-
 function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider
-        defaultTheme="light"
-        // switchable
-      >
+      <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Toaster />
+          <ScrollToTop />
+          <Navbar />
           <Router />
+          <Footer />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>
