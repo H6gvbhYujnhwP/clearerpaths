@@ -23,11 +23,28 @@ export default function Contact() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    toast.success("Thank you! We'll be in touch within 24 hours.");
+    setSubmitting(true);
+    try {
+      const res = await fetch("https://formspree.io/f/mjgprrap", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+        toast.success("Thank you! We'll be in touch within 24 hours.");
+      } else {
+        toast.error("Something went wrong. Please try again or call us directly.");
+      }
+    } catch {
+      toast.error("Network error. Please try again or call us directly.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -164,10 +181,11 @@ export default function Contact() {
                     <Button
                       type="submit"
                       size="lg"
-                      className="w-full bg-brand-green hover:bg-brand-green-dark text-white font-semibold py-6 text-base shadow-md hover:shadow-lg transition-all"
+                      disabled={submitting}
+                      className="w-full bg-brand-green hover:bg-brand-green-dark text-white font-semibold py-6 text-base shadow-md hover:shadow-lg transition-all disabled:opacity-60"
                     >
-                      Send Message & Book Consultation
-                      <Send className="ml-2 w-5 h-5" />
+                      {submitting ? "Sending..." : "Send Message & Book Consultation"}
+                      {!submitting && <Send className="ml-2 w-5 h-5" />}
                     </Button>
                     <p className="text-gray-400 text-xs text-center">
                       By submitting this form, you agree to be contacted about our services. We respect your privacy and will never share your information.
