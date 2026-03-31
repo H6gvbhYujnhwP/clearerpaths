@@ -207,7 +207,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="text-gray-400 text-xs mb-0.5">Phone</p>
-                      <p className="text-white font-medium group-hover:text-brand-green-light transition-colors">02035183702</p>
+                      <p className="text-white font-medium group-hover:text-brand-green-light transition-colors">0203 518 3702</p>
                     </div>
                   </a>
                   <a href="mailto:john@clearerpaths.co.uk" className="flex items-start gap-4 group">
