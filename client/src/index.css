@@ -49,6 +49,8 @@
   --color-brand-slate: oklch(0.96 0.005 260);
   --font-heading: 'Space Grotesk', sans-serif;
   --font-body: 'DM Sans', sans-serif;
+  --accent-strong: oklch(0.56 0.16 173);
+  --accent-strong-deep: oklch(0.49 0.15 173);
 }
 
 :root {
@@ -150,5 +152,378 @@
       padding-top: 7rem;
       padding-bottom: 7rem;
     }
+  }
+
+  .font-display {
+    font-family: 'Bebas Neue', sans-serif;
+  }
+
+  .homepage-showcase {
+    background-image:
+      radial-gradient(circle at top left, rgba(63, 209, 174, 0.09), transparent 24%),
+      radial-gradient(circle at 85% 10%, rgba(95, 132, 255, 0.08), transparent 22%),
+      linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(249,250,252,1) 100%);
+  }
+
+  .homepage-showcase .glass-panel {
+    background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(248,250,252,0.92));
+    border: 1px solid rgba(15,23,42,0.06);
+    box-shadow: 0 22px 60px rgba(148,163,184,0.18), inset 0 1px 0 rgba(255,255,255,0.9);
+    backdrop-filter: blur(18px);
+  }
+
+  .homepage-showcase .hero-grid {
+    background:
+      linear-gradient(135deg, rgba(63,209,174,0.05), transparent 22%),
+      linear-gradient(180deg, rgba(255,255,255,0.96), rgba(248,250,252,1));
+  }
+
+  .homepage-showcase .hero-noise {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.06;
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(15, 23, 42, 0.7) 0.6px, transparent 0.7px),
+      radial-gradient(circle at 80% 60%, rgba(15, 23, 42, 0.45) 0.6px, transparent 0.7px);
+    background-size: 38px 38px, 44px 44px;
+  }
+
+  .homepage-showcase .hero-glow {
+    position: absolute;
+    border-radius: 999px;
+    filter: blur(90px);
+    opacity: 0.28;
+    pointer-events: none;
+  }
+
+  .homepage-showcase .hero-glow-left {
+    left: -6rem;
+    top: 5rem;
+    height: 16rem;
+    width: 16rem;
+    background: rgba(63, 209, 174, 0.22);
+  }
+
+  .homepage-showcase .hero-glow-right {
+    right: -4rem;
+    top: 10rem;
+    height: 20rem;
+    width: 18rem;
+    background: rgba(113, 126, 255, 0.18);
+  }
+
+  .homepage-showcase .showcase-shell {
+    background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(248,250,252,0.96));
+    backdrop-filter: blur(18px);
+  }
+
+  .homepage-showcase .floating-panel {
+    animation: floatPulse 7.2s ease-in-out infinite;
+  }
+
+  .homepage-showcase .floating-badge {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    border-radius: 999px;
+    border: 1px solid rgba(15,23,42,0.08);
+    background: rgba(255,255,255,0.88);
+    padding: 0.85rem 1rem;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: rgba(15,23,42,0.72);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 18px 44px rgba(148,163,184,0.18);
+  }
+
+  .homepage-showcase .section-kicker {
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: rgba(32, 187, 148, 0.92);
+  }
+
+  .homepage-showcase .section-title {
+    margin-top: 0.9rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 6vw, 5.2rem);
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #0f172a;
+  }
+
+  .homepage-showcase .ticker-wrap {
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .homepage-showcase .ticker-track {
+    display: flex;
+    width: max-content;
+    animation: tickerMove 28s linear infinite;
+  }
+
+  .homepage-showcase .ticker-item {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding-right: 3.5rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.8rem, 3vw, 3rem);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(15,23,42,0.86);
+  }
+
+  .homepage-showcase .ticker-item::after {
+    content: '•';
+    position: absolute;
+    right: 1.25rem;
+    color: rgba(32, 187, 148, 0.8);
+  }
+
+  .homepage-showcase .marquee-row {
+    overflow: hidden;
+    mask-image: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
+  }
+
+  .homepage-showcase .marquee-track {
+    display: flex;
+    gap: 1.2rem;
+    width: max-content;
+  }
+
+  .homepage-showcase .marquee-row-left .marquee-track {
+    animation: marqueeLeft 32s linear infinite;
+  }
+
+  .homepage-showcase .marquee-row-right .marquee-track {
+    animation: marqueeRight 34s linear infinite;
+  }
+
+  .homepage-showcase .showcase-card {
+    position: relative;
+    display: grid;
+    width: min(92vw, 30rem);
+    grid-template-rows: 1fr auto;
+    overflow: hidden;
+    border-radius: 1.9rem;
+    border: 1px solid rgba(15,23,42,0.06);
+    background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(247,249,252,0.96));
+    box-shadow: 0 28px 80px rgba(148,163,184,0.2);
+  }
+
+  .homepage-showcase .showcase-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: var(--showcase-tint, linear-gradient(135deg, rgba(63,209,174,0.08), transparent 56%));
+    mix-blend-mode: multiply;
+    opacity: 1;
+  }
+
+  .homepage-showcase .showcase-card::after {
+    content: '';
+    position: absolute;
+    inset: auto 1.1rem 1.1rem 1.1rem;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--showcase-line, rgba(63,209,174,0.9)), transparent);
+    opacity: 0.9;
+    pointer-events: none;
+  }
+
+  .homepage-showcase .showcase-card-alt {
+    width: min(92vw, 34rem);
+    grid-template-columns: 0.95fr 1.05fr;
+    grid-template-rows: none;
+    align-items: stretch;
+  }
+
+  .homepage-showcase .showcase-image-wrap {
+    position: relative;
+    min-height: 18rem;
+    overflow: hidden;
+    background: white;
+  }
+
+  .homepage-showcase .showcase-image-wrap::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: var(--showcase-overlay, linear-gradient(135deg, rgba(63,209,174,0.14), transparent 58%));
+    mix-blend-mode: screen;
+    opacity: 0.7;
+  }
+
+  .homepage-showcase .showcase-image-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(180deg, transparent 40%, rgba(255,255,255,0.06) 100%);
+  }
+
+  .homepage-showcase .showcase-image {
+    position: relative;
+    z-index: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    filter: saturate(1.08) contrast(1.02);
+    transition: transform 0.8s ease, filter 0.8s ease;
+  }
+
+  .homepage-showcase .showcase-card:hover .showcase-image,
+  .homepage-showcase .showcase-card:focus-within .showcase-image {
+    transform: scale(1.04);
+    filter: saturate(1.16) contrast(1.05);
+  }
+
+  .homepage-showcase .showcase-copy {
+    position: relative;
+    z-index: 2;
+    padding: 1.35rem 1.3rem 1.45rem;
+  }
+
+  .homepage-showcase .showcase-copy h3 {
+    margin-top: 0.45rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.3rem;
+    line-height: 0.98;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #0f172a;
+  }
+
+  .homepage-showcase .showcase-copy p:last-child {
+    margin-top: 0.8rem;
+    color: rgba(51,65,85,0.8);
+    line-height: 1.7;
+  }
+
+  .homepage-showcase .showcase-tag {
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    color: var(--showcase-accent, rgba(32, 187, 148, 0.92));
+  }
+
+  .homepage-showcase .showcase-palette {
+    margin-top: 0.45rem;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: rgba(71,85,105,0.7);
+  }
+
+  .homepage-showcase .showcase-card-finance {
+    --showcase-accent: rgba(9, 164, 142, 0.98);
+    --showcase-line: rgba(9, 164, 142, 0.96);
+    --showcase-overlay: linear-gradient(135deg, rgba(13, 196, 170, 0.18), transparent 58%), linear-gradient(320deg, rgba(100, 214, 255, 0.14), transparent 54%);
+    --showcase-tint: radial-gradient(circle at top left, rgba(13,196,170,0.14), transparent 34%), radial-gradient(circle at bottom right, rgba(100,214,255,0.12), transparent 30%);
+  }
+
+  .homepage-showcase .showcase-card-legal {
+    --showcase-accent: rgba(151, 41, 74, 0.98);
+    --showcase-line: rgba(210, 150, 56, 0.96);
+    --showcase-overlay: linear-gradient(135deg, rgba(210,150,56,0.16), transparent 58%), linear-gradient(320deg, rgba(151,41,74,0.15), transparent 54%);
+    --showcase-tint: radial-gradient(circle at top left, rgba(210,150,56,0.12), transparent 34%), radial-gradient(circle at bottom right, rgba(151,41,74,0.12), transparent 30%);
+  }
+
+  .homepage-showcase .showcase-card-manufacturing {
+    --showcase-accent: rgba(37, 92, 221, 0.98);
+    --showcase-line: rgba(255, 118, 26, 0.96);
+    --showcase-overlay: linear-gradient(135deg, rgba(37,92,221,0.17), transparent 58%), linear-gradient(320deg, rgba(255,118,26,0.14), transparent 54%);
+    --showcase-tint: radial-gradient(circle at top left, rgba(37,92,221,0.12), transparent 34%), radial-gradient(circle at bottom right, rgba(255,118,26,0.12), transparent 30%);
+  }
+
+  .homepage-showcase .showcase-card-creative {
+    --showcase-accent: rgba(255, 102, 124, 0.98);
+    --showcase-line: rgba(72, 212, 218, 0.96);
+    --showcase-overlay: linear-gradient(135deg, rgba(255,102,124,0.15), transparent 58%), linear-gradient(320deg, rgba(72,212,218,0.16), transparent 54%), linear-gradient(180deg, transparent 50%, rgba(166,133,255,0.1) 100%);
+    --showcase-tint: radial-gradient(circle at top left, rgba(255,102,124,0.1), transparent 34%), radial-gradient(circle at bottom right, rgba(72,212,218,0.12), transparent 30%);
+  }
+
+  .homepage-showcase .process-card {
+    border-radius: 2rem;
+    border: 1px solid rgba(15,23,42,0.06);
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,250,252,0.92)),
+      radial-gradient(circle at top right, rgba(63,209,174,0.08), transparent 32%);
+    padding: 2rem;
+    box-shadow: 0 24px 64px rgba(148,163,184,0.16);
+  }
+
+  .homepage-showcase .pricing-band {
+    background:
+      linear-gradient(135deg, rgba(63,209,174,0.08), rgba(63,209,174,0.02) 18%, transparent 40%),
+      linear-gradient(180deg, rgba(255,255,255,0.98), rgba(246,248,251,0.98));
+    box-shadow: 0 42px 120px rgba(148,163,184,0.18);
+  }
+
+  .homepage-showcase .pricing-glow {
+    position: absolute;
+    right: -10%;
+    top: -12%;
+    height: 16rem;
+    width: 16rem;
+    border-radius: 999px;
+    background: rgba(63,209,174,0.14);
+    filter: blur(70px);
+    pointer-events: none;
+  }
+
+  @media (max-width: 767px) {
+    .homepage-showcase .showcase-card-alt {
+      grid-template-columns: 1fr;
+    }
+
+    .homepage-showcase .showcase-card-alt .showcase-copy {
+      order: 2;
+    }
+  }
+}
+
+@keyframes tickerMove {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-33.333%);
+  }
+}
+
+@keyframes marqueeLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marqueeRight {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes floatPulse {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0);
   }
 }

@@ -1,0 +1,34 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="64" y1="48" x2="448" y2="464" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7FFFB"/>
+      <stop offset="0.52" stop-color="#EAFBF2"/>
+      <stop offset="1" stop-color="#E7F4FF"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="90" y1="72" x2="424" y2="440" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#19B56D"/>
+      <stop offset="1" stop-color="#108D89"/>
+    </linearGradient>
+    <linearGradient id="monogram" x1="156" y1="138" x2="360" y2="360" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0D203B"/>
+      <stop offset="1" stop-color="#22A85B"/>
+    </linearGradient>
+    <filter id="shadow" x="40" y="40" width="432" height="432" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="18"/>
+      <feGaussianBlur stdDeviation="20"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.0470588 0 0 0 0 0.12549 0 0 0 0 0.231373 0 0 0 0.14 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_1"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_1" result="shape"/>
+    </filter>
+  </defs>
+  <g filter="url(#shadow)">
+    <rect x="64" y="64" width="384" height="384" rx="104" fill="url(#bg)"/>
+    <rect x="76" y="76" width="360" height="360" rx="92" stroke="url(#ring)" stroke-width="12"/>
+    <path d="M178 206C178 164.026 212.026 130 254 130H328V182H256C242.745 182 232 192.745 232 206C232 219.255 242.745 230 256 230H312V282H254C212.026 282 178 247.974 178 206Z" fill="url(#monogram)"/>
+    <path d="M248 230H314C356.526 230 391 264.474 391 307C391 349.526 356.526 384 314 384H206V332H312C325.255 332 336 321.255 336 308C336 294.745 325.255 284 312 284H248V230Z" fill="url(#monogram)"/>
+    <path d="M166 360L206 320H250L210 360H166Z" fill="#22A85B" fill-opacity="0.32"/>
+    <circle cx="362" cy="156" r="20" fill="#22A85B" fill-opacity="0.16"/>
+  </g>
+</svg>

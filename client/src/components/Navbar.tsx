@@ -12,6 +12,7 @@ const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663048135071/m6TrB
 
 const navLinks = [
   { href: "/", label: "Home" },
+  { href: "/get-leads", label: "Get Leads" },
   { href: "/services", label: "Services" },
   { href: "/how-it-works", label: "How It Works" },
   { href: "/about", label: "About Us" },
@@ -73,9 +74,17 @@ export default function Navbar() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-3">
-            <a href="tel:02035183702" className="flex items-center gap-2 text-sm text-brand-navy font-medium hover:text-brand-green transition-colors">
-              <Phone className="w-4 h-4" />
-              0203 518 3702
+            <a
+              href="tel:02035183702"
+              className="flex items-center gap-3 rounded-full border border-brand-green/20 bg-brand-green/8 px-4 py-2.5 text-brand-navy transition-colors hover:border-brand-green/35 hover:bg-brand-green/12"
+            >
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-green text-white shadow-sm">
+                <Phone className="h-4 w-4" />
+              </div>
+              <div className="leading-tight">
+                <p className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-brand-green">Call us today</p>
+                <p className="text-lg font-extrabold tracking-[0.04em] text-brand-navy">0203 518 3702</p>
+              </div>
             </a>
             <Link href="/contact">
               <Button className="bg-brand-green hover:bg-brand-green-dark text-white font-semibold px-6 shadow-md hover:shadow-lg transition-all">
@@ -119,9 +128,14 @@ export default function Navbar() {
                 </Link>
               ))}
               <div className="pt-3 mt-2 border-t border-gray-100 flex flex-col gap-3">
-                <a href="tel:02035183702" className="flex items-center gap-2 px-4 text-brand-navy font-medium">
-                  <Phone className="w-4 h-4" />
-                  0203 518 3702
+                <a href="tel:02035183702" className="flex items-center gap-3 rounded-2xl bg-brand-green/8 px-4 py-3 text-brand-navy">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-green text-white">
+                    <Phone className="h-4 w-4" />
+                  </div>
+                  <div className="leading-tight">
+                    <p className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-brand-green">Call us today</p>
+                    <p className="text-lg font-extrabold tracking-[0.04em] text-brand-navy">0203 518 3702</p>
+                  </div>
                 </a>
                 <Link href="/contact">
                   <Button className="w-full bg-brand-green hover:bg-brand-green-dark text-white font-semibold">

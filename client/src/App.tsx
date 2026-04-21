@@ -7,6 +7,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
+import GetLeads from "./pages/GetLeads";
 import Services from "./pages/Services";
 import HowItWorks from "./pages/HowItWorks";
 import About from "./pages/About";
@@ -28,6 +29,7 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/get-leads" component={GetLeads} />
       <Route path="/services" component={Services} />
       <Route path="/how-it-works" component={HowItWorks} />
       <Route path="/about" component={About} />

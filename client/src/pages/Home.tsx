@@ -1,343 +1,351 @@
-/* Bold Authority Design — Home Page
- * White bg, navy feature blocks, green accents, Space Grotesk headings, DM Sans body
- * Real stock images, animated counters, growth graph, card-based services
+/*
+ * Design reminder — Integrated ClearerPaths homepage
+ * This page brings the fast-moving one-page website showcase into the existing master site shell.
+ * Do not add a second top header or anchor navigation. The shared ClearerPaths navigation must remain
+ * the only master header across the site.
  */
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
 import {
-  Mail, Search, Linkedin, Facebook, Globe, Zap, Smartphone, BarChart3,
-  ArrowRight, TrendingUp, Users, Target, CheckCircle2
+  ArrowRight,
+  Clock3,
+  Gauge,
+  Layers3,
+  MoveRight,
+  Phone,
+  PoundSterling,
+  Sparkles,
 } from "lucide-react";
-import AnimatedCounter from "@/components/AnimatedCounter";
-import SectionHeading from "@/components/SectionHeading";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Area, AreaChart } from "recharts";
 
-const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663048135071/m6TrBe4JVRorZBtV3Sne3H/hero-marketing-team-SUPSLBV9akiEusun23zXbW.webp";
-const GROWTH_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663048135071/m6TrBe4JVRorZBtV3Sne3H/growth-graph-hero-iKM8RuLv9Sqcm3AkyNf52D.webp";
-const CONSULTATION_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663048135071/m6TrBe4JVRorZBtV3Sne3H/consultation-meeting-BCTuxvqdMXJbhdRjeETxnj.webp";
-
-const graphData = [
-  { month: "Jan", leads: 12 },
-  { month: "Feb", leads: 19 },
-  { month: "Mar", leads: 28 },
-  { month: "Apr", leads: 42 },
-  { month: "May", leads: 58 },
-  { month: "Jun", leads: 71 },
-  { month: "Jul", leads: 89 },
-  { month: "Aug", leads: 112 },
-  { month: "Sep", leads: 134 },
-  { month: "Oct", leads: 165 },
-  { month: "Nov", leads: 198 },
-  { month: "Dec", leads: 240 },
+const showcaseImages = [
+  {
+    title: "Finance",
+    theme: "finance",
+    palette: "Emerald · Cyan · Gold",
+    blurb: "Bright, premium finance layouts with real colour, stronger trust signals, and crisp dashboard storytelling.",
+    image:
+      "https://d2xsxph8kpxj0f.cloudfront.net/310519663048135071/cdS9QgbPSPGzYdnRUui5Kp/light-finance-showcase-v2-JbF4xthtGAxp8T7GrLPTRY.webp",
+  },
+  {
+    title: "Solicitors",
+    theme: "legal",
+    palette: "Burgundy · Amber · Stone",
+    blurb: "Warm, established legal styling with genuine richness instead of flat dark tinting.",
+    image:
+      "https://d2xsxph8kpxj0f.cloudfront.net/310519663048135071/cdS9QgbPSPGzYdnRUui5Kp/light-legal-showcase-v2-HA9sHKYTD6C8DhWZZsN3bC.webp",
+  },
+  {
+    title: "Manufacturing",
+    theme: "manufacturing",
+    palette: "Cobalt · Orange · Silver",
+    blurb: "Energetic industrial presentation with sharper product framing and vivid technical contrast.",
+    image:
+      "https://d2xsxph8kpxj0f.cloudfront.net/310519663048135071/cdS9QgbPSPGzYdnRUui5Kp/light-manufacturing-showcase-v2-ZCWCb9TqQZwXZ9zXpu5i7h.webp",
+  },
+  {
+    title: "Creative",
+    theme: "creative",
+    palette: "Coral · Aqua · Lilac",
+    blurb: "Lively studio work with gallery-style white space and genuinely vibrant art direction.",
+    image:
+      "https://d2xsxph8kpxj0f.cloudfront.net/310519663048135071/cdS9QgbPSPGzYdnRUui5Kp/light-creative-showcase-v2-Jkbdj3uJf9gSfXBPPzXroJ.webp",
+  },
 ];
 
-const services = [
-  { icon: Mail, title: "Email Outreach", desc: "Targeted campaigns that reach decision-makers directly. Our clients see open rates 10x the industry average." },
-  { icon: Search, title: "Google Ads / PPC", desc: "Pay-per-click campaigns that put your business in front of people actively searching for what you offer." },
-  { icon: Linkedin, title: "LinkedIn Marketing", desc: "Professional outreach that connects you with the right people in the right industries." },
-  { icon: Facebook, title: "Facebook Retargeting", desc: "Pixel-powered campaigns that bring back visitors who showed interest but didn't convert." },
-  { icon: Globe, title: "Website Design", desc: "Modern, conversion-focused websites built to turn visitors into enquiries." },
-  { icon: Zap, title: "Automation Flows", desc: "Smart workflows that nurture leads automatically, so no opportunity slips through the cracks." },
-  { icon: Smartphone, title: "App Development", desc: "Custom applications that streamline your operations and give your clients a better experience." },
-  { icon: BarChart3, title: "SEO & Landing Pages", desc: "Search-optimised content and dedicated landing pages that capture and convert organic traffic." },
+const industries = [
+  "Designers",
+  "Finance",
+  "Solicitors",
+  "Manufacturers",
+  "Property",
+  "Consultants",
+  "Healthcare",
+  "Recruitment",
+  "Construction",
+  "Hospitality",
 ];
 
-const fadeUp = {
-  initial: { opacity: 0, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-50px" },
-  transition: { duration: 0.6 },
-};
+const metrics = [
+  { value: "48", suffix: "hrs", label: "Rapid build window" },
+  { value: "799", suffix: "package", label: "7-page offer" },
+  { value: "10", suffix: "clients", label: "Free domain launch offer" },
+];
+
+const deliverables = [
+  "7 completed website pages",
+  "Images included",
+  "Words and messaging included",
+  "Hosting included",
+  "Delivered by a UK company",
+  "Launch-ready visual system",
+];
+
+const process = [
+  {
+    step: "01",
+    title: "Brief in the morning",
+    text: "You send the sector, offer, visual tone, and contact priorities. We lock the direction quickly and keep the process focused.",
+  },
+  {
+    step: "02",
+    title: "Build the same day",
+    text: "We shape the message, layout, colour system, and premium presentation flow immediately so momentum stays high.",
+  },
+  {
+    step: "03",
+    title: "Refine and launch",
+    text: "We tighten the details, finalise the pages, and package the site so it feels polished, current, and commercially ready.",
+  },
+];
 
 export default function Home() {
+  const marqueeItems = [...showcaseImages, ...showcaseImages];
+  const tickerItems = [...industries, ...industries, ...industries];
+
   return (
-    <div className="min-h-screen">
-      {/* ─── HERO ─── */}
-      <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden">
-        <div className="container">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Left — Text */}
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7 }}
-            >
-              <span className="inline-block bg-brand-green/10 text-brand-green text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
-                New-Generation Lead Generation
-              </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-navy leading-[1.1] mb-6">
-                Clear Strategy.<br />
-                <span className="text-brand-green">Real Leads.</span><br />
-                More Clients.
-              </h1>
-              <p className="text-lg md:text-xl text-gray-600 leading-relaxed mb-8 max-w-lg">
-                We help UK businesses generate a consistent flow of genuine, interested enquiries using modern marketing techniques that actually work. No fluff. No vanity metrics. Just real leads that become real clients.
+    <div className="homepage-showcase min-h-screen bg-background pt-24 text-foreground md:pt-28">
+      <main>
+        <section className="hero-grid relative overflow-hidden border-b border-black/6">
+          <div className="hero-noise" />
+          <div className="hero-glow hero-glow-left" />
+          <div className="hero-glow hero-glow-right" />
+
+          <div className="container relative grid gap-14 py-16 md:py-24 xl:grid-cols-[1.05fr_1.05fr] xl:items-center xl:gap-18 xl:py-28">
+            <div className="max-w-3xl">
+              <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-black/8 bg-white px-4 py-2 text-[0.72rem] font-medium uppercase tracking-[0.24em] text-slate-600 shadow-[0_16px_45px_rgba(15,23,42,0.06)]">
+                <Sparkles className="h-4 w-4 text-[var(--accent-strong)]" />
+                Stunning website snapshots delivered in under 48 hours
+              </div>
+
+              <p className="max-w-md text-sm uppercase tracking-[0.34em] text-slate-500">
+                Varied. Stunning. Commercial. Built for businesses that need to move now.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+
+              <h1 className="font-display mt-5 max-w-4xl text-[clamp(4.3rem,10vw,9.4rem)] uppercase leading-[0.88] tracking-[0.02em] text-slate-950">
+                Stunning sites.
+                <span className="block text-[var(--accent-strong)]">Real colour.</span>
+                <span className="block">Under 48 hours.</span>
+              </h1>
+
+              <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-600 sm:text-xl">
+                A bright homepage built like a rolling presentation, showing what ClearerPaths can create for designers,
+                finance firms, solicitors, manufacturers, and other sectors that need a sharp website fast.
+              </p>
+
+              <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
                 <Link href="/contact">
-                  <Button size="lg" className="bg-brand-green hover:bg-brand-green-dark text-white font-semibold px-8 py-6 text-base shadow-lg hover:shadow-xl transition-all">
-                    Book a Free Consultation
-                    <ArrowRight className="ml-2 w-5 h-5" />
+                  <Button size="lg" className="rounded-full bg-slate-950 px-7 text-sm font-semibold uppercase tracking-[0.18em] text-white hover:bg-slate-800">
+                    Start your 48-hour brief
+                    <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>
-                <Link href="/how-it-works">
-                  <Button size="lg" variant="outline" className="border-brand-navy/20 text-brand-navy hover:bg-brand-navy/5 font-semibold px-8 py-6 text-base">
-                    See How It Works
+
+                <Link href="/get-leads">
+                  <Button size="lg" variant="outline" className="rounded-full border-black/10 bg-white px-7 text-sm font-semibold uppercase tracking-[0.18em] text-slate-900 hover:bg-slate-50">
+                    See Get Leads
                   </Button>
                 </Link>
               </div>
-            </motion.div>
 
-            {/* Right — Image */}
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="relative"
-            >
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <div className="mt-12 grid gap-4 sm:grid-cols-3">
+                {metrics.map((item) => (
+                  <div key={item.label} className="glass-panel rounded-[1.8rem] p-5">
+                    <p className="font-display text-5xl uppercase leading-none text-slate-950">
+                      {item.value}
+                      <span className="ml-2 text-lg text-[var(--accent-strong)]">{item.suffix}</span>
+                    </p>
+                    <p className="mt-3 text-sm uppercase tracking-[0.2em] text-slate-500">{item.label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative xl:pl-8">
+              <div className="showcase-shell floating-panel overflow-hidden rounded-[2rem] border border-black/6 p-3 shadow-[0_40px_120px_rgba(148,163,184,0.25)]">
                 <img
-                  src={HERO_IMG}
-                  alt="Marketing team analysing growth data"
-                  className="w-full h-auto object-cover"
+                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663048135071/cdS9QgbPSPGzYdnRUui5Kp/light-hero-showcase-collage-UyGTCThus47dkG4QiKDr3N.webp"
+                  alt="Premium showcase of colourful multi-industry website concepts"
+                  className="h-full min-h-[420px] w-full rounded-[1.4rem] object-cover"
                 />
-                {/* Floating stat card */}
-                <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-lg border border-gray-100">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-brand-green/10 rounded-lg flex items-center justify-center">
-                      <TrendingUp className="w-5 h-5 text-brand-green" />
-                    </div>
-                    <div>
-                      <p className="text-xs text-gray-500 font-medium">Client Lead Growth</p>
-                      <p className="text-lg font-bold text-brand-navy">+240%</p>
-                    </div>
-                  </div>
-                </div>
               </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
 
-      {/* ─── STATS BAR ─── */}
-      <section className="bg-brand-slate py-16">
-        <div className="container">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <AnimatedCounter end={40} prefix="£" suffix="" label="Return for every £1 on email" />
-            <AnimatedCounter end={10} suffix="x" label="Above industry open rates" />
-            <AnimatedCounter end={80} suffix="%" label="More leads within 90 days" />
-            <AnimatedCounter end={10} suffix="+" label="Hours saved per week" />
-          </div>
-        </div>
-      </section>
-
-      {/* ─── SERVICES OVERVIEW ─── */}
-      <section className="section-padding">
-        <div className="container">
-          <SectionHeading
-            eyebrow="What We Do"
-            title="Everything You Need to Generate More Clients"
-            description="From the first email to the final conversion, we build complete lead generation systems that bring new business to your door — consistently."
-          />
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((s, i) => (
-              <motion.div
-                key={s.title}
-                {...fadeUp}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-              >
-                <Link href="/services">
-                  <div className="group bg-white border border-gray-100 rounded-xl p-6 h-full hover:shadow-lg hover:border-brand-green/20 transition-all duration-300 hover:-translate-y-1">
-                    <div className="w-12 h-12 bg-brand-green/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-brand-green/20 transition-colors">
-                      <s.icon className="w-6 h-6 text-brand-green" />
-                    </div>
-                    <h3 className="text-lg font-semibold text-brand-navy mb-2">{s.title}</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">{s.desc}</p>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-          <div className="text-center mt-10">
-            <Link href="/services">
-              <Button variant="outline" className="border-brand-green text-brand-green hover:bg-brand-green hover:text-white font-semibold px-8">
-                View All Services
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── GROWTH GRAPH SECTION (Navy Block) ─── */}
-      <section className="bg-brand-navy section-padding relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5">
-          <img src={GROWTH_IMG} alt="" className="w-full h-full object-cover" />
-        </div>
-        <div className="container relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <SectionHeading
-                eyebrow="Proven Results"
-                title="Watch Your Leads Grow Month After Month"
-                description="Our clients don't just get a one-off boost. We build systems that compound over time, delivering more and more qualified leads as your campaigns mature."
-                light
-                align="left"
-              />
-              <div className="space-y-4 mt-8">
-                {[
-                  "Consistent lead flow that grows every month",
-                  "Qualified enquiries from people ready to buy",
-                  "Full transparency with monthly reporting",
-                  "No long-term contracts — results speak for themselves",
-                ].map((item) => (
-                  <motion.div key={item} {...fadeUp} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-brand-green-light mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-300 text-base">{item}</span>
-                  </motion.div>
-                ))}
+              <div className="floating-badge left-[-2%] top-[8%] hidden xl:block">
+                <Clock3 className="h-4 w-4 text-[var(--accent-strong)]" />
+                <span>Quick-turn build system</span>
+              </div>
+              <div className="floating-badge right-[-2%] top-[40%] hidden xl:block">
+                <Gauge className="h-4 w-4 text-[var(--accent-strong)]" />
+                <span>Brighter premium presentation</span>
+              </div>
+              <div className="floating-badge bottom-[6%] left-[6%] hidden xl:block">
+                <Layers3 className="h-4 w-4 text-[var(--accent-strong)]" />
+                <span>Distinct sector colour directions</span>
               </div>
             </div>
-            <motion.div {...fadeUp} className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-white font-semibold text-lg">New Client Leads Generated</h3>
-                <span className="text-brand-green-light text-sm font-medium flex items-center gap-1">
-                  <TrendingUp className="w-4 h-4" /> +1,900%
+          </div>
+        </section>
+
+        <section className="border-b border-black/6 bg-white py-5">
+          <div className="ticker-wrap">
+            <div className="ticker-track">
+              {tickerItems.map((item, index) => (
+                <span key={`${item}-${index}`} className="ticker-item">
+                  {item}
                 </span>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="relative overflow-hidden py-24">
+          <div className="container">
+            <div className="mb-12 grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
+              <div>
+                <p className="section-kicker">Snapshot reel</p>
+                <h2 className="section-title max-w-lg">
+                  Clean white space outside. Real colour and variety inside every sample.
+                </h2>
               </div>
-              <ResponsiveContainer width="100%" height={300}>
-                <AreaChart data={graphData}>
-                  <defs>
-                    <linearGradient id="leadGradient" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#22A85B" stopOpacity={0.4} />
-                      <stop offset="95%" stopColor="#22A85B" stopOpacity={0} />
-                    </linearGradient>
-                  </defs>
-                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.08)" />
-                  <XAxis dataKey="month" stroke="rgba(255,255,255,0.4)" tick={{ fontSize: 12 }} />
-                  <YAxis stroke="rgba(255,255,255,0.4)" tick={{ fontSize: 12 }} />
-                  <Tooltip
-                    contentStyle={{ backgroundColor: "#152238", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "8px", color: "#fff" }}
-                    labelStyle={{ color: "#22A85B" }}
-                  />
-                  <Area type="monotone" dataKey="leads" stroke="#22A85B" strokeWidth={3} fill="url(#leadGradient)" />
-                </AreaChart>
-              </ResponsiveContainer>
-              <p className="text-gray-400 text-xs mt-3 text-center">Typical client lead trajectory over 12 months</p>
-            </motion.div>
+              <p className="max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
+                The reel behaves like a bright rolling gallery. Each frame has its own palette and personality, so the
+                samples feel like genuinely different website directions rather than one style repeated.
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
 
-      {/* ─── HOW IT WORKS PREVIEW ─── */}
-      <section className="section-padding">
-        <div className="container">
-          <SectionHeading
-            eyebrow="Our Process"
-            title="Simple, Transparent, Effective"
-            description="We've stripped away the complexity. Here's how we take you from where you are now to a consistent flow of new client leads."
-          />
-          <div className="grid md:grid-cols-4 gap-8">
-            {[
-              { step: "01", title: "Free Consultation", desc: "A relaxed chat to understand your business, your goals, and where the biggest opportunities lie.", icon: Users },
-              { step: "02", title: "Discovery Session", desc: "We dig deep into your ideal customers, your market, and your competitors to build a tailored strategy.", icon: Target },
-              { step: "03", title: "Build & Launch", desc: "We build your campaigns, landing pages, and automation flows — then launch and start generating leads.", icon: Zap },
-              { step: "04", title: "Grow & Optimise", desc: "Monthly managed services that continuously improve performance and scale your lead generation.", icon: TrendingUp },
-            ].map((item, i) => (
-              <motion.div
-                key={item.step}
-                {...fadeUp}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="relative"
-              >
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-brand-green/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
-                    <item.icon className="w-7 h-7 text-brand-green" />
-                  </div>
-                  <span className="text-brand-green font-bold text-sm mb-2 block">{item.step}</span>
-                  <h3 className="text-xl font-bold text-brand-navy mb-3">{item.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
-                </div>
-                {i < 3 && (
-                  <div className="hidden md:block absolute top-8 -right-4 w-8">
-                    <ArrowRight className="w-6 h-6 text-brand-green/30" />
-                  </div>
-                )}
-              </motion.div>
-            ))}
-          </div>
-          <div className="text-center mt-12">
-            <Link href="/how-it-works">
-              <Button variant="outline" className="border-brand-green text-brand-green hover:bg-brand-green hover:text-white font-semibold px-8">
-                Learn More About Our Process
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
+          <div className="space-y-5 overflow-hidden pb-4">
+            <div className="marquee-row marquee-row-left">
+              <div className="marquee-track">
+                {marqueeItems.map((item, index) => (
+                  <article key={`${item.title}-top-${index}`} className={`showcase-card showcase-card-${item.theme}`}>
+                    <div className="showcase-image-wrap">
+                      <img src={item.image} alt={`${item.title} website showcase`} className="showcase-image" />
+                    </div>
+                    <div className="showcase-copy">
+                      <p className="showcase-tag">{item.title}</p>
+                      <p className="showcase-palette">{item.palette}</p>
+                      <h3>{item.title} websites at speed</h3>
+                      <p>{item.blurb}</p>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
 
-      {/* ─── WHY US / TRUST SECTION ─── */}
-      <section className="bg-brand-slate section-padding">
-        <div className="container">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div {...fadeUp}>
-              <img
-                src={CONSULTATION_IMG}
-                alt="Business consultation meeting"
-                className="rounded-2xl shadow-xl w-full h-auto"
-              />
-            </motion.div>
-            <div>
-              <SectionHeading
-                eyebrow="Why ClearerPaths"
-                title="We're Not an Agency. We're Your Growth Partner."
-                description="Traditional marketing agencies sell you impressions and clicks. We deliver genuine, interested enquiries from people who want what you offer."
-                align="left"
-              />
-              <div className="space-y-5">
-                {[
-                  { title: "No Long-Term Contracts", desc: "Our results speak for themselves. You stay because it works, not because you're locked in." },
-                  { title: "Transparent Monthly Reporting", desc: "You'll see exactly where every lead came from and how your campaigns are performing." },
-                  { title: "Built for UK Businesses", desc: "We understand the UK market. Our strategies are tailored to how British businesses buy." },
-                  { title: "Modern Techniques, Real Results", desc: "We use the latest in digital marketing — not outdated tactics that stopped working years ago." },
-                ].map((item) => (
-                  <motion.div key={item.title} {...fadeUp} className="flex items-start gap-4">
-                    <div className="w-8 h-8 bg-brand-green/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <CheckCircle2 className="w-4 h-4 text-brand-green" />
+            <div className="marquee-row marquee-row-right">
+              <div className="marquee-track">
+                {[...marqueeItems].reverse().map((item, index) => (
+                  <article key={`${item.title}-bottom-${index}`} className={`showcase-card showcase-card-alt showcase-card-${item.theme}`}>
+                    <div className="showcase-copy">
+                      <p className="showcase-tag">48-hour delivery</p>
+                      <p className="showcase-palette">{item.palette}</p>
+                      <h3>{item.title} presentation snapshot</h3>
+                      <p>{item.blurb}</p>
                     </div>
-                    <div>
-                      <h4 className="font-semibold text-brand-navy mb-1">{item.title}</h4>
-                      <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+                    <div className="showcase-image-wrap">
+                      <img src={item.image} alt={`${item.title} industry website example`} className="showcase-image" />
                     </div>
-                  </motion.div>
+                  </article>
                 ))}
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ─── CTA BANNER ─── */}
-      <section className="bg-brand-green section-padding">
-        <div className="container text-center">
-          <motion.div {...fadeUp}>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-              Ready to Get More Clients?
-            </h2>
-            <p className="text-white/90 text-lg max-w-2xl mx-auto mb-8">
-              Book a free, no-obligation consultation and we'll show you exactly how we can help your business generate more leads and win more clients.
-            </p>
-            <Link href="/contact">
-              <Button size="lg" className="bg-white text-brand-green hover:bg-gray-100 font-bold px-10 py-6 text-base shadow-lg">
-                Book Your Free Consultation
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-            </Link>
-          </motion.div>
-        </div>
-      </section>
+        <section className="border-y border-black/6 bg-[linear-gradient(180deg,rgba(250,250,252,1),rgba(244,247,251,1))] py-24">
+          <div className="container grid gap-10 xl:grid-cols-[0.9fr_1.1fr] xl:items-start">
+            <div>
+              <p className="section-kicker">What is included</p>
+              <h2 className="section-title max-w-xl">Designed to look premium, built to get moving quickly.</h2>
+              <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
+                This is a fuller fast-turn website offer for businesses that need to stop looking dated and get a sharper,
+                more current presence live without waiting through a long agency process.
+              </p>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {deliverables.map((item) => (
+                <div key={item} className="glass-panel rounded-[1.7rem] p-6">
+                  <p className="flex items-center gap-3 text-sm uppercase tracking-[0.22em] text-slate-700">
+                    <MoveRight className="h-4 w-4 text-[var(--accent-strong)]" />
+                    {item}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="py-24">
+          <div className="container">
+            <div className="mb-12 grid gap-8 lg:grid-cols-[0.76fr_1.24fr] lg:items-end">
+              <div>
+                <p className="section-kicker">48-hour workflow</p>
+                <h2 className="section-title max-w-lg">A simple production rhythm built for speed and clean delivery.</h2>
+              </div>
+              <p className="max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
+                Quick delivery works best when the structure is disciplined. The page, the visuals, the palette, and the
+                offer are arranged in a clear sprint so the result feels bright, fast, and commercially strong.
+              </p>
+            </div>
+
+            <div className="grid gap-5 lg:grid-cols-3">
+              {process.map((item) => (
+                <article key={item.step} className="process-card">
+                  <p className="font-display text-6xl text-[var(--accent-strong)]">{item.step}</p>
+                  <h3 className="mt-8 text-2xl uppercase tracking-[0.08em] text-slate-950">{item.title}</h3>
+                  <p className="mt-4 text-base leading-8 text-slate-600">{item.text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="pb-24">
+          <div className="container">
+            <div className="pricing-band relative overflow-hidden rounded-[2.4rem] border border-black/6 px-6 py-10 sm:px-10 sm:py-12 lg:px-14 lg:py-14">
+              <div className="pricing-glow" />
+              <div className="relative grid gap-10 xl:grid-cols-[1.16fr_0.84fr] xl:items-center">
+                <div>
+                  <p className="section-kicker">Offer</p>
+                  <h2 className="section-title max-w-2xl">7 pages completed for £799, with images, words, hosting, and UK delivery included.</h2>
+                  <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+                    Built for businesses that do not want to lose clients to a stale outdated site. The first 10 clients can
+                    also get their domain name of choice included free as part of the current launch offer.
+                  </p>
+                </div>
+
+                <div className="glass-panel rounded-[2rem] p-7 sm:p-8">
+                  <p className="flex items-center gap-3 text-sm uppercase tracking-[0.24em] text-slate-500">
+                    <PoundSterling className="h-4 w-4 text-[var(--accent-strong)]" />
+                    Fast full-site offer
+                  </p>
+                  <p className="font-display mt-4 text-[clamp(4rem,8vw,6rem)] uppercase leading-none text-slate-950">
+                    £799
+                  </p>
+                  <p className="mt-3 text-sm uppercase tracking-[0.22em] text-[var(--accent-strong)]">7 pages completed</p>
+                  <p className="mt-6 text-base leading-8 text-slate-600">
+                    Clear, bold, current design with the writing, visuals, hosting, and launch packaging already handled.
+                  </p>
+                  <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                    <Link href="/contact">
+                      <Button className="rounded-full bg-slate-950 px-6 text-sm font-semibold uppercase tracking-[0.18em] text-white hover:bg-slate-800">
+                        Contact us today
+                      </Button>
+                    </Link>
+                    <a href="tel:02035183702">
+                      <Button variant="outline" className="rounded-full border-black/10 bg-white px-6 text-sm font-semibold uppercase tracking-[0.18em] text-slate-900 hover:bg-slate-50">
+                        <Phone className="mr-2 h-4 w-4" />
+                        Call 0203 518 3702
+                      </Button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
   );
 }
