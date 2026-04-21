@@ -103,14 +103,14 @@ export default function Home() {
   const tickerItems = [...industries, ...industries, ...industries];
 
   return (
-    <div className="homepage-showcase min-h-screen bg-background pt-24 text-foreground md:pt-28">
+    <div className="homepage-showcase min-h-screen bg-background pt-16 text-foreground md:pt-20">
       <main>
         <section className="hero-grid relative overflow-hidden border-b border-black/6">
           <div className="hero-noise" />
           <div className="hero-glow hero-glow-left" />
           <div className="hero-glow hero-glow-right" />
 
-          <div className="container relative grid gap-14 py-16 md:py-24 xl:grid-cols-[1.05fr_1.05fr] xl:items-center xl:gap-18 xl:py-28">
+          <div className="container relative grid gap-14 py-10 md:py-16 xl:grid-cols-[1.05fr_1.05fr] xl:items-center xl:gap-18 xl:py-20">
             <div className="max-w-3xl">
               <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-black/8 bg-white px-4 py-2 text-[0.72rem] font-medium uppercase tracking-[0.24em] text-slate-600 shadow-[0_16px_45px_rgba(15,23,42,0.06)]">
                 <Sparkles className="h-4 w-4 text-[var(--accent-strong)]" />

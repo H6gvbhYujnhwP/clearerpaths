@@ -13,7 +13,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <img src={LOGO_URL} alt="TheGreenAgents.com" className="h-14 w-auto mb-5 brightness-0 invert" />
+            <img src={LOGO_URL} alt="TheGreenAgents.com" className="h-16 w-auto mb-5" />
             <p className="text-gray-300 text-sm leading-relaxed mb-6">
               Clear Strategy. Real Leads. More Clients. We are the new generation of lead generation experts, helping UK businesses grow with modern marketing that actually works.
             </p>
