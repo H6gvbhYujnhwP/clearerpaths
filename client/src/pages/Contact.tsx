@@ -29,14 +29,22 @@ export default function Contact() {
     e.preventDefault();
     setSubmitting(true);
     try {
-      const res = await fetch("https://formspree.io/f/mjgprrap", {
+      const res = await fetch("https://formspree.io/f/mojynrzq", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify(formData),
       });
       if (res.ok) {
         setSubmitted(true);
-        toast.success("Thank you! We'll be in touch within 24 hours.");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          company: "",
+          service: "",
+          message: "",
+        });
+        toast.success("Thank you — someone will be in touch shortly.");
       } else {
         toast.error("Something went wrong. Please try again or call us directly.");
       }
@@ -83,13 +91,13 @@ export default function Contact() {
             {/* Form */}
             <motion.div {...fadeUp} className="lg:col-span-7">
               {submitted ? (
-                <div className="bg-brand-green/5 border border-brand-green/20 rounded-2xl p-10 text-center">
+                <div className="bg-brand-green/5 border border-brand-green/20 rounded-2xl p-10 text-center" aria-live="polite">
                   <div className="w-16 h-16 bg-brand-green/10 rounded-full flex items-center justify-center mx-auto mb-6">
                     <CheckCircle2 className="w-8 h-8 text-brand-green" />
                   </div>
-                  <h3 className="text-2xl font-bold text-brand-navy mb-3">Thank You!</h3>
+                  <h3 className="text-2xl font-bold text-brand-navy mb-3">Thank you — someone will be in touch shortly.</h3>
                   <p className="text-gray-600 text-base leading-relaxed max-w-md mx-auto">
-                    We've received your message and will be in touch within 24 hours to arrange your free consultation. We look forward to learning about your business.
+                    Your message has been sent successfully and you have stayed on this page. Our team will review your enquiry and come back to you shortly.
                   </p>
                 </div>
               ) : (
