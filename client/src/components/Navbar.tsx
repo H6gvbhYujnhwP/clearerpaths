@@ -87,7 +87,7 @@ export default function Navbar() {
                 <p className="mt-1 whitespace-nowrap text-base font-extrabold tracking-[0.02em] text-brand-navy xl:text-lg xl:tracking-[0.04em]">0203 518 3702</p>
               </div>
             </a>
-            <Link href="/contact">
+            <Link href="/contact" className="hidden xl:block">
               <Button className="whitespace-nowrap bg-brand-green px-4 text-sm font-semibold text-white shadow-md transition-all hover:bg-brand-green-dark hover:shadow-lg xl:px-6">
                 Book a Free Consultation
               </Button>
