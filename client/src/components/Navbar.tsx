@@ -45,22 +45,22 @@ export default function Navbar() {
       }`}
     >
       <div className="container">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between gap-4 h-18 xl:h-20">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <img
               src={LOGO_URL}
               alt="TheGreenAgents.com"
-              className="h-14 md:h-16 w-auto"
+              className="h-12 lg:h-14 xl:h-16 w-auto"
             />
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex min-w-0 flex-1 items-center justify-center gap-0.5 px-2 xl:px-4">
             {navLinks.map((link) => (
               <Link key={link.href} href={link.href}>
                 <span
-                  className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
+                  className={`whitespace-nowrap rounded-md px-2 py-2 text-[0.8rem] font-medium transition-colors xl:px-3 xl:text-sm ${
                     location === link.href
                       ? "text-brand-green bg-brand-green/5"
                       : "text-brand-navy hover:text-brand-green hover:bg-brand-green/5"
@@ -73,21 +73,22 @@ export default function Navbar() {
           </nav>
 
           {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex shrink-0 items-center gap-2 xl:gap-3">
             <a
               href="tel:02035183702"
-              className="flex items-center gap-3 rounded-full border border-brand-green/20 bg-brand-green/8 px-4 py-2.5 text-brand-navy transition-colors hover:border-brand-green/35 hover:bg-brand-green/12"
+              className="flex items-center gap-2 rounded-full border border-brand-green/20 bg-brand-green/8 px-3 py-2 text-brand-navy transition-colors hover:border-brand-green/35 hover:bg-brand-green/12 xl:gap-3 xl:px-4 xl:py-2.5"
             >
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-green text-white shadow-sm">
+                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-green text-white shadow-sm xl:h-10 xl:w-10">
+
                 <Phone className="h-4 w-4" />
               </div>
-              <div className="leading-tight">
-                <p className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-brand-green">Call us today</p>
-                <p className="text-lg font-extrabold tracking-[0.04em] text-brand-navy">0203 518 3702</p>
+              <div className="leading-none">
+                <p className="text-[0.55rem] font-semibold uppercase tracking-[0.16em] text-brand-green xl:text-[0.65rem] xl:tracking-[0.18em]">Call us today</p>
+                <p className="mt-1 whitespace-nowrap text-base font-extrabold tracking-[0.02em] text-brand-navy xl:text-lg xl:tracking-[0.04em]">0203 518 3702</p>
               </div>
             </a>
             <Link href="/contact">
-              <Button className="bg-brand-green hover:bg-brand-green-dark text-white font-semibold px-6 shadow-md hover:shadow-lg transition-all">
+              <Button className="whitespace-nowrap bg-brand-green px-4 text-sm font-semibold text-white shadow-md transition-all hover:bg-brand-green-dark hover:shadow-lg xl:px-6">
                 Book a Free Consultation
               </Button>
             </Link>
